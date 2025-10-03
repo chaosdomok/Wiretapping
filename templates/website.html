@@ -1,0 +1,106 @@
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/website.css') }}">
+  <title>Elektryk - Panel użytkownika</title>
+</head>
+<body>
+
+  <!-- Nawigacja -->
+  <nav>
+    <div><strong>⚡ Elektryk</strong></div>
+    <div>
+      <a href="#">Strona główna</a>
+      <a href="#">Moje konto</a>
+      <a href="#">Ustawienia</a>
+      <a href="#">Wyloguj</a>
+    </div>
+  </nav>
+
+  <!-- Nagłówek -->
+  <header>
+    <h1>Witaj, użytkowniku!</h1>
+    <p>Zalogowano pomyślnie. Możesz teraz korzystać z panelu.</p>
+  </header>
+
+  <!-- Główna zawartość -->
+  <main>
+    <h2>Twój panel kontrolny</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>📊 Statystyki</h3>
+        <p>Sprawdź swoje zużycie energii, bilans i inne dane.</p>
+      </div>
+      <div class="card">
+        <h3>💡 Urządzenia</h3>
+        <p>Zarządzaj podłączonymi urządzeniami elektrycznymi.</p>
+      </div>
+      <div class="card">
+        <h3>🔔 Powiadomienia</h3>
+        <p>Masz 3 nowe powiadomienia. Kliknij, aby je zobaczyć.</p>
+      </div>
+      <div class="card">
+        <h3>🧾 Faktury</h3>
+        <p>Twoje ostatnie faktury za prąd są gotowe do pobrania.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Alert -->
+  <div id="alert">⚠️ Twoje hasło zostało przechwycone!!</div>
+
+  <!-- Edukacja -->
+  <div class="education" id="education" style="display:none;">
+    <h2>Jak się chronić? 🛡️</h2>
+    <ul>
+      <li>✔️ Twórz długie i unikalne hasła (minimum 12 znaków, litery, cyfry, symbole).</li>
+      <li>✔️ Używaj menedżera haseł, aby nie powtarzać ich w wielu serwisach.</li>
+      <li>✔️ Włącz 2FA (dwuskładnikowe uwierzytelnianie) tam, gdzie to możliwe.</li>
+      <li>✔️ Unikaj logowania do kont przez publiczne Wi-Fi – to raj dla hakerów 📡.</li>
+      <li>✔️ Regularnie aktualizuj swoje hasła i oprogramowanie.</li>
+      <li>✔️ Zwracaj uwagę na fałszywe strony logowania (phishing) 🎣.</li>
+      <li>✔️ Sprawdzaj adresy URL — nawet literówka może prowadzić na złośliwą stronę.</li>
+      <li>✔️ Nigdy nie udostępniaj haseł osobom trzecim, nawet "pracownikom technicznym".</li>
+      <li>✔️ Używaj VPN, jeśli musisz korzystać z otwartych sieci Wi-Fi.</li>
+      <li>✔️ Loguj się tylko na stronach z certyfikatem SSL (adres zaczyna się od <code>https://</code>).</li>
+    </ul>
+
+    <h2>Dodatkowe fakty 💡</h2>
+    <ul>
+      <li>🔒 80% naruszeń danych wynika z użycia słabych lub powtórzonych haseł.</li>
+      <li>🎣 Phishing to jedna z najczęstszych metod kradzieży danych – oszuści tworzą strony łudząco podobne do oryginalnych.</li>
+      <li>🧠 Większość ludzi używa tych samych haseł do wielu kont – to ogromne ryzyko, jeśli jedno z nich zostanie złamane.</li>
+      <li>🕵️ Nawet kliknięcie w podejrzany link w e-mailu może uruchomić złośliwy skrypt.</li>
+      <li>📱 Aplikacje mobilne również mogą być podatne – pobieraj je tylko z zaufanych źródeł.</li>
+      <li>🧪 Strony testowe (takie jak ta) służą nauce — ale atakujący też tworzą fałszywe strony logowania.</li>
+      <li>👁️ W niektórych atakach tzw. *keyloggery* rejestrują wszystko, co wpisujesz na klawiaturze.</li>
+      <li>🌍 Pamiętaj — nikt nie jest za mało ważny, by stać się celem cyberataku.</li>
+    </ul>
+
+    <p>
+      Logowanie do publicznych sieci Wi-Fi bez VPN znacznie zwiększa ryzyko kradzieży danych.
+      Nawet jeśli strona wygląda prawdziwie, ktoś może „podsłuchiwać” Twoje logowanie.
+    </p>
+  </div>
+
+  <!-- Skrypt JavaScript -->
+  <script>
+    const alertBox = document.getElementById("alert");
+    const education = document.getElementById("education");
+
+    // Pokaż alert po 8 sekundach
+    setTimeout(() => {
+      alertBox.style.display = "block";
+
+      // Pokaż edukację po 2 sek. od alertu
+      setTimeout(() => {
+        education.style.display = "block";
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      }, 2000);
+
+    }, 3000);
+  </script>
+</body>
+</html>
+
